@@ -26,7 +26,7 @@ console.log('NODE_ENV=' + currentNodeENV)
 
 // // get ready for production route/url test in development
 // if (currentNodeENV === 'development') {
-//     server.use('*', (req, res) => {
+//     server.get('*', (req, res) => {
 //         res.send('development mode!')
 //     })
 // } 
@@ -38,7 +38,7 @@ if (currentNodeENV === 'production') {
     server.use(express.static( path.join(__dirname, 'frontend', 'build') ))
 
     // handle frontend in HTML + JS from React build
-    server.use('*', (req, res) => {
+    server.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
     })    
 }
