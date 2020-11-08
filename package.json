@@ -18,5 +18,8 @@
     "dev": "nodemon server.js",
     "postinstall": "yarn --cwd ./frontend build",
     "start": "node server.js"
+  },
+  "engines": {
+    "node": "14.15.0"
   }
 }
