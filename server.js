@@ -16,6 +16,7 @@ const _PORT = process.env.PORT || 80 // for development it may be 3001/2/--etc
 
 // middlewares
 server.use( express.json() )
+server.use( express.urlencoded({ extended: true }) ) // AJAX supports
 server.use( '/api', cors() ) // CORS enabled for APIs
 server.use( '/api', require('./API.routes') ) // API routes
 

@@ -16,9 +16,6 @@
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "build": "node server.js",
-    "start": "node server.js",
-    "publish": "node server.js",
-    "postinstall": "node server.js"
+    "start": "node server.js"
   }
 }
