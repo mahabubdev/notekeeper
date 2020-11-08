@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "postinstall": "yarn --cwd ./frontend install && yarn --cwd ./frontend build",
+    "postinstall": "yarn --cwd ./frontend build",
     "start": "node server.js"
   },
   "engines": {

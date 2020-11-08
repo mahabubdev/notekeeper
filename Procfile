@@ -1,1 +1,1 @@
-web: yarn postinstall && yarn install && yarn start
+web: node server.js
