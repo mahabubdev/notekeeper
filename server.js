@@ -11,7 +11,7 @@ dotenv.config()
 // inti express app
 let server = express()
 
-const _PORT = process.env.PORT || 80 // for development it may be 3001/2/--etc
+const _PORT = process.env.PORT || 8080 // for development it may be 3001/2/--etc
 
 
 // middlewares
@@ -25,22 +25,16 @@ server.use( '/api', require('./API.routes') ) // API routes
 let currentNodeENV = process.env.NODE_ENV
 console.log('NODE_ENV=' + currentNodeENV)
 
-// // get ready for production route/url test in development
-// if (currentNodeENV === 'development') {
-//     server.get('*', (req, res) => {
-//         res.send('development mode!')
-//     })
-// } 
 
 // get ready for production
 if (currentNodeENV === 'production') {
     console.log('Check : ' + 'PROD')
     // make static folder supports
-    server.use(express.static( path.join(__dirname, 'frontend', 'build') ))
+    server.use(express.static( 'frontend/build' ))
 
     // handle frontend in HTML + JS from React build
-    server.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
+    server.use( (req, res) => {
+        res.sendFile(path.join(__dirname, 'frontend/build/index.html'))
     })    
 }
 
